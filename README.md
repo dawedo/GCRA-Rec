@@ -26,31 +26,6 @@ After compilation, the C++ code will run by default instead of Python code.
 
 ## Examples to run a 3-layer GCN
 The instruction of commands has been clearly stated in the codes (see the parser function in GCRA-Rec/utility/parser.py).
-### MovieLens-100k dataset
-* Command
-```
-python run_GCRA_Rec.py --dataset ml-100kprocessed
-```
-* Output log :
-```
-eval_score_matrix_foldout with python
-n_users=1212, n_items=3708
-n_interactions=53159
-n_train=42048, n_test=11111, sparsity=0.01183
-...
-Building user sequences...
-Users with valid sequences: 1092 out of 1212
-Average sequence length: 36.56
-Sequential weight: 0.001
-...
-Epoch 1 [9.7s]: train==[0.56935=0.54036 + 0.00010 + 0.02889]
-Epoch 2 [7.5s]: train==[0.43097=0.40523 + 0.00044 + 0.02530]
-    ...
-Epoch 400 [28.1s + 10.8s]: test==[0.46454=0.40009 + 0.03460 + 0.02985], recall=[0.12564], precision=[0.03727], ndcg=[0.08447]
-Early stopping is trigger at step: 6 log:0.12564431130886078
-Best Iter=[13]@[3745.1s]	recall=[0.13282], precision=[0.03852], hit=[0.03587], ndcg=[0.08886]
-```
-
 
 ### Yelp2018 dataset
 * Command
@@ -77,10 +52,36 @@ Epoch 560 [1067.3s + 711.2s]: test==[0.15022=0.13925 + 0.00545 + 0.00552], recal
 Early stopping is trigger at step: 10 log:0.08532067388296127
 Best Iter=[17]@[120095.3s]	recall=[0.08592], precision=[0.02013], hit=[0.02156], ndcg=[0.05409]
 ```
+
+### MovieLens-100k dataset
+* Command
+```
+python run_GCRA_Rec.py --dataset ml-100kprocessed
+```
+* Output log :
+```
+eval_score_matrix_foldout with python
+n_users=943, n_items=1349
+n_interactions=99287
+n_train=79045, n_test=20242, sparsity=0.07805
+...
+Building user sequences...
+Users with valid sequences: 943 out of 943
+Average sequence length: 83.82
+Sequential weight: 0.005
+...
+Epoch 1 [18.0s]: train==[0.41707=0.41659 + 0.00004 + 0.00045]
+Epoch 2 [13.1s]: train==[0.29845=0.29801 + 0.00011 + 0.00034]
+    ...
+Epoch 320 [38.9s + 9.1s]: test==[0.33647=0.32169 + 0.01384 + 0.00094], recall=[0.20942], precision=[0.14873], ndcg=[0.21702]
+Early stopping is trigger at step: 6 log:0.20941539108753204
+Best Iter=[9]@[4934.7s]	recall=[0.21540], precision=[0.15069], hit=[0.07909], ndcg=[0.22041]
+```
+
 ### Last.FM dataset
 * Command
 ```
-python run_GCRA_Rec.py --dataset LastFM
+python run_GCRA_Rec.py --dataset lastfm_processed
 ```
 * Output log :
 ```
@@ -92,7 +93,7 @@ n_train=42048, n_test=11111, sparsity=0.01183
 Building user sequences...
 Users with valid sequences: 1092 out of 1212
 Average sequence length: 36.56
-Sequential weight: 0.05
+Sequential weight: 0.01
 ...
 Epoch 1 [9.7s]: train==[0.56935=0.54036 + 0.00010 + 0.02889]
 Epoch 2 [7.5s]: train==[0.43097=0.40523 + 0.00044 + 0.02530]
@@ -103,7 +104,7 @@ Best Iter=[13]@[3745.1s]	recall=[0.13282], precision=[0.03852], hit=[0.03587], n
 ```
 NOTE : the duration of training and testing depends on the running environment.
 ## Dataset
-We provide three processed datasets: MovieLens-100k, Yelp2018 and LastFM.
+We provide three processed datasets: Yelp2018, MovieLens-100k and lastfm.
 * `train.txt`
   * Train file.
   * Each line is a user with her/his positive interactions with items: userID\t a list of itemID\n.
