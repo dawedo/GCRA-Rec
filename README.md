@@ -80,7 +80,7 @@ Best Iter=[17]@[120095.3s]	recall=[0.08592], precision=[0.02013], hit=[0.02156],
 ### Last.FM dataset
 * Command
 ```
-python run_GCRA_Rec.py --dataset amazon-book
+python run_GCRA_Rec.py --dataset LastFM
 ```
 * Output log :
 ```
@@ -103,7 +103,7 @@ Best Iter=[13]@[3745.1s]	recall=[0.13282], precision=[0.03852], hit=[0.03587], n
 ```
 NOTE : the duration of training and testing depends on the running environment.
 ## Dataset
-We provide three processed datasets: Gowalla, Yelp2018 and Amazon-book.
+We provide three processed datasets: MovieLens-100k, Yelp2018 and LastFM.
 * `train.txt`
   * Train file.
   * Each line is a user with her/his positive interactions with items: userID\t a list of itemID\n.
